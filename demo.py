@@ -33,7 +33,7 @@ if sys.version_info[0] < 3:
 
 def load_checkpoints(config_path, checkpoint_path, cpu=False):
     with open(config_path) as f:
-        config = yaml.load(f)
+        config = yaml.safe_load(f) # use safe_load instead of load for one parameter: https://stackoverflow.com/questions/69564817/typeerror-load-missing-1-required-positional-argument-loader-in-google-col
 
     generator = Generator(num_regions=config['model_params']['num_regions'],
                           num_channels=config['model_params']['num_channels'],
@@ -110,7 +110,7 @@ def main(opt):
     source_image = resize(source_image, opt.img_shape)[..., :3]
     driving_video = [resize(frame, opt.img_shape)[..., :3] for frame in driving_video]
     generator, region_predictor, avd_network = load_checkpoints(config_path=opt.config,
-                                                                checkpoint_path=opt.checkpoint, cpu=opt.cpu)
+                                                                checkpoint_path=opt.checkpoint, cpu=True) # Explicitly set CPU as True
     predictions = make_animation(source_image, driving_video, generator, region_predictor, avd_network,
                                  animation_mode=opt.mode, cpu=opt.cpu)
     imageio.mimsave(opt.result_video, [img_as_ubyte(frame) for frame in predictions], fps=fps)

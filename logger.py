@@ -13,7 +13,9 @@ import torch.nn.functional as F
 import imageio
 
 import os
-from skimage.draw import circle
+# change from "from skimage.draw import circle" to "from skimage.draw import ellipse as circle"
+# Source: https://github.com/AliaksandrSiarohin/first-order-model/issues/563  
+from skimage.draw import ellipse as circle
 
 import matplotlib.pyplot as plt
 import collections
