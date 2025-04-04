@@ -112,7 +112,7 @@ def main(opt):
     generator, region_predictor, avd_network = load_checkpoints(config_path=opt.config,
                                                                 checkpoint_path=opt.checkpoint, cpu=True) # Explicitly set CPU as True
     predictions = make_animation(source_image, driving_video, generator, region_predictor, avd_network,
-                                 animation_mode=opt.mode, cpu=opt.cpu)
+                                 animation_mode=opt.mode, cpu=True) # Explicitly set CPU as TRUE
     imageio.mimsave(opt.result_video, [img_as_ubyte(frame) for frame in predictions], fps=fps)
 
 
