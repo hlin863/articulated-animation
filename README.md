@@ -31,6 +31,11 @@ To run a demo, download a checkpoint and run the following command:
 ```bash
 python demo.py  --config config/dataset_name.yaml --driving_video path/to/driving --source_image path/to/source --checkpoint path/to/checkpoint
 ```
+
+```
+python demo.py  --config config/ted384.yaml --driving_video driving/shaking-head-driving.mp4 --source_image image/Trump.jpg --checkpoint checkpoint/ted-youtube384.pth
+```
+
 The result will be stored in ```result.mp4```. To use Animation via Disentaglemet add ```--mode avd```, for standard animation add  ```--mode standard``` instead.
 
 ### Colab Demo 
