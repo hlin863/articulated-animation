@@ -33,7 +33,7 @@ python demo.py  --config config/dataset_name.yaml --driving_video path/to/drivin
 ```
 
 ```
-python demo.py  --config config/ted384.yaml --driving_video driving/shaking-head-driving.mp4 --source_image image/Trump.jpg --checkpoint checkpoint/ted-youtube384.pth
+python demo.py  --config config/ted384.yaml --driving_video driving/shaking-head-driving.mp4 --source_image image/Trump.jpg --checkpoint checkpoint/ted384.pth
 ```
 
 Executed ```pip install imageio[ffmpeg]``` to avoid an error 
